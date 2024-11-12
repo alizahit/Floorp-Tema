@@ -1,0 +1,99 @@
+
+/*************************************************************************************************************************************************************************************************************************************************************
+
+"userChrome.css" is a custom CSS file that can be used to specify CSS style rules for Floorp's interface (NOT internal site) using "chrome" privileges.
+For instance, if you want to hide the tab bar, you can use the following CSS rule:
+
+**************************************
+#TabsToolbar {                       *
+    display: none !important;        *
+}                                    *
+**************************************
+
+NOTE: You can use the userChrome.css file without change preferences (about:config)
+
+Quote: https://userChrome.org | https://github.com/topics/userchrome 
+
+************************************************************************************************************************************************************************************************************************************************************/
+
+@charset "UTF-8";
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+/* Please write your custom CSS under this line*/
+
+#urlbar:is([focused="true"], [open])>#urlbar-background, #searchbar:focus-within {
+  background-color: rgba(80,60,90,0.8) !important;
+}
+#urlbar:is([focused="true"], [open]), #searchbar:focus-within {
+  color: rgb(225,225,255) !important;
+}
+
+#urlbar-background, #searchbar, .identity-box-button, 
+.urlbar-page-action, .urlbar-go-button, 
+.search-go-button, #tracking-protection-icon-container {
+  border-radius: 20px !important;
+}
+#urlbar-background {
+   background: rgb(80,60,90) !important;
+   /*border-color: rgb(170, 75, 180) !important;*/
+}
+
+#nav-bar {
+  border-radius: 20px 20px 0 0 !important;
+}
+
+/*  Çıkış, simge durumuna küçültme, vs butonları*/
+.titlebar-button.titlebar-min, .titlebar-button.titlebar-max, 
+.titlebar-button.titlebar-restore {
+  border-radius: 5px !important;
+  padding: 10px !important;
+}
+.titlebar-button.titlebar-close {
+  border-radius: 5px !important;
+  margin-right: 8px !important;
+  padding: 10px !important;
+  border-top-right-radius: 8px !important;
+}
+
+/*  toolbar-en üst kısım, renk*/
+.browser-toolbar, #appcontent {
+    background-color: rgb(50,30,60) !important;
+}
+/*en arka plan renk , köşeler*/
+#navigator-toolbox,#browser {
+    background-color: rgb(0,0,0) !important;
+}
+
+.notificationbox-stack {
+  background-color: rgb(50,30,60) !important;
+ }
+
+
+.browserContainer {
+  border: solid 0px !important;
+  background-color: rgb(50,30,60) !important;
+}
+
+
+
+/*  sidebar küçük olan    */
+#sidebar-select-box {
+    color: rgb(255,255,255) !important; 
+border-bottom-right-radius: 20px !important;
+border-left: 0px solid !important;
+background-color: rgb(50,30,60) !important;
+}
+#passwords-icon {
+   display: none !important;
+}
+
+@media (-moz-bool-pref: "userChrome.theme.system_default") and (-moz-platform: windows) and (prefers-color-scheme: dark) {
+  :root:is(:not([lwtheme]), :not(:-moz-lwtheme)), :root[lwt-default-theme-in-dark-mode] 
+{
+   --win-hover-bgcolor: rgb(35,15,45) !important;
+   --win-hover-active-bgcolor: rgb(35,15,45) !important;
+   --win-component-bgcolor: rgb(50,30,60) !important;
+   --win-border-color: rgb(170, 75, 180) !important;
+}
+
+
+
